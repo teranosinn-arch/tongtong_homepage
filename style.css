@@ -144,7 +144,7 @@ header::before {
     perspective: 1000px;
 }
 
-.logo-svg {
+.logo-img {
     width: 100%;
     max-width: 600px;
     height: auto;
@@ -170,51 +170,6 @@ header::before {
 @keyframes logo-float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-8px); }
-}
-
-.logo-char {
-    animation: logo-char-pulse 1.5s ease-in-out infinite;
-}
-
-.logo-text {
-    animation: logo-text-pulse 1.5s ease-in-out infinite 0.3s;
-}
-
-.logo-tongtong {
-    animation: logo-tongtong-pulse 1.5s ease-in-out infinite 0.6s;
-}
-
-@keyframes logo-char-pulse {
-    0%, 100% { 
-        opacity: 1;
-        filter: brightness(1);
-    }
-    50% { 
-        opacity: 0.9;
-        filter: brightness(1.2);
-    }
-}
-
-@keyframes logo-text-pulse {
-    0%, 100% { 
-        opacity: 1;
-        filter: brightness(1);
-    }
-    50% { 
-        opacity: 0.9;
-        filter: brightness(1.2);
-    }
-}
-
-@keyframes logo-tongtong-pulse {
-    0%, 100% { 
-        opacity: 1;
-        filter: brightness(1);
-    }
-    50% { 
-        opacity: 0.9;
-        filter: brightness(1.2);
-    }
 }
 
 .banner-glow {
@@ -425,6 +380,70 @@ main {
     text-shadow: 
         0 0 3px #00ff00,
         0 0 8px #00aa00;
+}
+
+/* ============================================
+   ウェルカムフレックス（テキスト + マスコット）
+   ============================================ */
+
+.welcome-flex {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.welcome-copy {
+    flex: 1;
+    min-width: 0;
+}
+
+.mascot-wrap {
+    position: relative;
+    flex: 0 0 auto;
+    width: 170px;
+    animation: bob 3s ease-in-out infinite;
+}
+
+.mascot-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.6));
+}
+
+.mascot-img-blink {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: mascot-blink 4.5s steps(1, end) infinite;
+}
+
+@keyframes mascot-blink {
+    0%, 92%, 100% { opacity: 0; }
+    94%, 97% { opacity: 1; }
+}
+
+/* ロゴステッカー装飾 */
+.sticker {
+    position: absolute;
+    width: 84px;
+    height: auto;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.5));
+    pointer-events: none;
+    z-index: 2;
+}
+
+.sticker-news {
+    top: -16px;
+    right: -10px;
+    transform: rotate(8deg);
+}
+
+.sticker-music {
+    bottom: -16px;
+    right: -10px;
+    transform: rotate(-8deg);
 }
 
 .highlight {
@@ -772,6 +791,17 @@ footer {
         inset 0 0 10px rgba(0, 255, 0, 0.1);
 }
 
+.footer-mark {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    width: 34px;
+    height: auto;
+    opacity: 0.85;
+    filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.5));
+    z-index: 1;
+}
+
 footer::before {
     content: '';
     position: absolute;
@@ -848,7 +878,7 @@ footer::before {
         font-size: 11px;
     }
     
-    .logo-svg {
+    .logo-img {
         max-width: 500px;
     }
     
@@ -881,6 +911,18 @@ footer::before {
     header {
         margin: 10px auto;
     }
+    
+    .welcome-flex {
+        flex-direction: column-reverse;
+    }
+    
+    .mascot-wrap {
+        width: 130px;
+    }
+    
+    .sticker {
+        width: 64px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -888,7 +930,7 @@ footer::before {
         font-size: 10px;
     }
     
-    .logo-svg {
+    .logo-img {
         max-width: 400px;
     }
     
@@ -902,5 +944,9 @@ footer::before {
     
     .links-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .footer-mark {
+        display: none;
     }
 }
