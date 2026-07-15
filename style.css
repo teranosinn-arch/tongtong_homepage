@@ -135,6 +135,88 @@ header::before {
     z-index: 1;
 }
 
+/* ============================================
+   ロゴスタイル
+   ============================================ */
+
+.logo-container {
+    margin-bottom: 20px;
+    perspective: 1000px;
+}
+
+.logo-svg {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 10px #00ff00);
+    animation: logo-glow 2s ease-in-out infinite, logo-float 3s ease-in-out infinite;
+}
+
+@keyframes logo-glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px #00ff00) 
+                drop-shadow(0 0 20px #00aa00)
+                drop-shadow(0 0 30px rgba(0, 255, 0, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 15px #00ff00)
+                drop-shadow(0 0 25px #00aa00)
+                drop-shadow(0 0 40px rgba(0, 255, 0, 0.5));
+    }
+}
+
+@keyframes logo-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.logo-char {
+    animation: logo-char-pulse 1.5s ease-in-out infinite;
+}
+
+.logo-text {
+    animation: logo-text-pulse 1.5s ease-in-out infinite 0.3s;
+}
+
+.logo-tongtong {
+    animation: logo-tongtong-pulse 1.5s ease-in-out infinite 0.6s;
+}
+
+@keyframes logo-char-pulse {
+    0%, 100% { 
+        opacity: 1;
+        filter: brightness(1);
+    }
+    50% { 
+        opacity: 0.9;
+        filter: brightness(1.2);
+    }
+}
+
+@keyframes logo-text-pulse {
+    0%, 100% { 
+        opacity: 1;
+        filter: brightness(1);
+    }
+    50% { 
+        opacity: 0.9;
+        filter: brightness(1.2);
+    }
+}
+
+@keyframes logo-tongtong-pulse {
+    0%, 100% { 
+        opacity: 1;
+        filter: brightness(1);
+    }
+    50% { 
+        opacity: 0.9;
+        filter: brightness(1.2);
+    }
+}
+
 .banner-glow {
     text-shadow: 
         2px 2px 0 #00aa00,
@@ -161,22 +243,6 @@ header::before {
         6px 6px 0 #003300,
         0 0 3px #00ff00,
         0 0 8px #00aa00; }
-}
-
-.title-main {
-    font-family: 'Press Start 2P', monospace;
-    font-size: 2.2rem;
-    color: #00ff00;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 1.1;
-    text-shadow: 
-        1px 1px 0 #00aa00,
-        2px 2px 0 #006600,
-        3px 3px 0 #003300,
-        0 0 8px #00ff00,
-        0 0 12px #00aa00;
 }
 
 .tagline {
@@ -782,8 +848,8 @@ footer::before {
         font-size: 11px;
     }
     
-    .title-main {
-        font-size: 1.5rem;
+    .logo-svg {
+        max-width: 500px;
     }
     
     .tagline {
@@ -822,8 +888,8 @@ footer::before {
         font-size: 10px;
     }
     
-    .title-main {
-        font-size: 1.2rem;
+    .logo-svg {
+        max-width: 400px;
     }
     
     .members-grid {
