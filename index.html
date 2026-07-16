@@ -11,164 +11,32 @@
 <body>
     <!-- 背景アニメーション -->
     <div class="sparkles"></div>
-    
-    <!-- ヘッダー -->
-    <header>
-        <div class="header-content">
-            <div class="logo-container">
-                <img src="images/logo-green.png" alt="惑星トントン" class="logo-img">
-            </div>
-            <div class="banner-glow">
-                <p class="tagline">>> OFFICIAL HOME PAGE <<<</p>
-            </div>
-            <div class="under-construction">
-                <img src="data:image/gif;base64,R0lGODlhMgAyAIAAAP///wAAACH5BAEAAAAALAAAAAAyADIAAAJIhI+py+0Po5y02ouz3rz7D4biSJbmiabryrJsO8fxTEP5zgf//wCCgoOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqcoKAkA" alt="under construction" class="construct-gif">
-                <span>[!!!UNDER CONSTRUCTION!!!]</span>
-            </div>
-        </div>
-    </header>
 
-    <!-- ナビゲーション -->
-    <nav class="nav-bar">
-        <table class="nav-table">
-            <tr>
-                <td><a href="#top" class="nav-link">[HOME]</a></td>
-                <td><a href="#members" class="nav-link">[MEMBERS]</a></td>
-                <td><a href="#music" class="nav-link">[MUSIC]</a></td>
-                <td><a href="#contact" class="nav-link">[LINKS]</a></td>
-            </tr>
-        </table>
-    </nav>
+    <!-- ヘッダー（ブロック: partials/header.html） -->
+    <div data-include="partials/header.html"></div>
+
+    <!-- ナビゲーション（ブロック: partials/nav.html） -->
+    <div data-include="partials/nav.html"></div>
 
     <!-- メインコンテンツ -->
     <main>
-        <!-- トップセクション -->
-        <section id="top" class="section top-section">
-            <div class="content-box">
-                <div class="welcome-flex">
-                    <div class="welcome-copy">
-                        <h2>[WELCOME]</h2>
-                        <p class="welcome-text">
-                            TOKYO-BASED BAND<br>
-                            <span class="highlight">[*TONGTONG*]</span> OFFICIAL SITE<br>
-                            <br>
-                            WE ARE SEARCHING FOR NEW SOUNDS<br>
-                            >>> LATEST TRACK "KOKO-DENAI-DOKOKA-E" NOW ON ALL PLATFORMS <<<
-                        </p>
-                    </div>
-                    <div class="mascot-wrap">
-                        <img src="images/mascot-alien-a.png" alt="惑星トントン イメージキャラクター" class="mascot-img mascot-img-base">
-                        <img src="images/mascot-alien-b.png" alt="" class="mascot-img mascot-img-blink" aria-hidden="true">
-                    </div>
-                </div>
-                <div class="news-box">
-                    <img src="images/logo-mintgreen.png" alt="" class="sticker sticker-news" aria-hidden="true">
-                    <h3>[NEWS]</h3>
-                    <ul>
-                        <li>>> "KOKO-DENAI-DOKOKA-E" AVAILABLE NOW!</li>
-                        <li>>> NEW TRACK IN PRODUCTION...</li>
-                        <li>>> LIVE INFO COMING SOON...</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        <!-- トップセクション（ブロック: partials/section-top.html） -->
+        <div data-include="partials/section-top.html"></div>
 
-        <!-- メンバーセクション -->
-        <section id="members" class="section members-section">
-            <h2>[MEMBERS]</h2>
-            <div class="members-grid">
-                <div class="member-card card-1">
-                    <div class="member-icon">[MIC]</div>
-                    <h3>YUMA NAGASE</h3>
-                    <p>[GUITAR & VOCAL]</p>
-                    <p class="member-desc">PASSIONATE SOUND FROM THE HEART</p>
-                </div>
-                <div class="member-card card-2">
-                    <div class="member-icon">[KEY]</div>
-                    <h3>NICKNAME</h3>
-                    <p>[KEYBOARD & SYNTH]</p>
-                    <p class="member-desc">ADDS DEPTH & COLOR TO OUR SOUND</p>
-                </div>
-                <div class="member-card card-3">
-                    <div class="member-icon">[BAS]</div>
-                    <h3>KOKI SHIROTA</h3>
-                    <p>[BASS]</p>
-                    <p class="member-desc">POWERFUL BASS LINE FOUNDATION</p>
-                </div>
-                <div class="member-card card-4">
-                    <div class="member-icon">[DRM]</div>
-                    <h3>HIROYOSHI CHIN</h3>
-                    <p>[DRUMS]</p>
-                    <p class="member-desc">RHYTHMIC ENERGY LEADER</p>
-                </div>
-            </div>
-        </section>
+        <!-- メンバーセクション（ブロック: partials/section-members.html） -->
+        <div data-include="partials/section-members.html"></div>
 
-        <!-- 音楽セクション -->
-        <section id="music" class="section music-section">
-            <h2>[MUSIC]</h2>
-            <div class="content-box">
-                <h3>[STREAMING SERVICES]</h3>
-                <div class="streaming-links">
-                    <a href="https://www.tunecore.co.jp/artists?id=1100012&lang=ja" class="streaming-btn">
-                        [TUNECORE]
-                    </a>
-                    <a href="https://music.apple.com/jp/artist/惑星トントン/1886145847" class="streaming-btn">
-                        [APPLE]
-                    </a>
-                    <a href="#" class="streaming-btn">
-                        [SPOTIFY]
-                    </a>
-                    <a href="#" class="streaming-btn">
-                        [LINEMUSIC]
-                    </a>
-                </div>
-                <div class="song-info">
-                    <img src="images/logo-seagreen-on-firebrick.png" alt="" class="sticker sticker-music" aria-hidden="true">
-                    <h4>[NEW RELEASE]</h4>
-                    <p class="song-title">"KOKO-DENAI-DOKOKA-E"</p>
-                    <p>>>> LEADING TO A NEW WORLD <<<<br>RELEASED: 2026.03.25</p>
-                </div>
-            </div>
-        </section>
+        <!-- 音楽セクション（ブロック: partials/section-music.html） -->
+        <div data-include="partials/section-music.html"></div>
 
-        <!-- リンク/コンタクト -->
-        <section id="contact" class="section contact-section">
-            <h2>[LINKS]</h2>
-            <div class="links-grid">
-                <div class="link-box">
-                    <h3>[SNS]</h3>
-                    <ul>
-                        <li><a href="#">[TWITTER]</a></li>
-                        <li><a href="#">[INSTAGRAM]</a></li>
-                        <li><a href="#">[YOUTUBE]</a></li>
-                    </ul>
-                </div>
-                <div class="link-box">
-                    <h3>[MUSIC]</h3>
-                    <ul>
-                        <li><a href="https://www.tunecore.co.jp/artists?id=1100012&lang=ja">[TUNECORE]</a></li>
-                        <li><a href="#">[SPOTIFY]</a></li>
-                        <li><a href="#">[APPLE MUSIC]</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        <!-- リンク/コンタクト（ブロック: partials/section-contact.html） -->
+        <div data-include="partials/section-contact.html"></div>
     </main>
 
-    <!-- フッター -->
-    <footer>
-        <img src="images/logo-vertical-black.png" alt="" class="footer-mark" aria-hidden="true">
-        <div class="footer-content">
-            <p>[*TONGTONG*] OFFICIAL HOMEPAGE</p>
-            <p class="counter">
-                <img src="https://hitwebcounter.com/counter.php?simple/178;rgb(0,255,0)/;nml/Counter/" alt="web counter" style="border:0;">
-            </p>
-            <p class="retro-text">(C) 2026 [*TONGTONG*] ALL RIGHTS RESERVED</p>
-            <p class="footer-decoration">[*][*][*][*][*][*][*]</p>
-        </div>
-    </footer>
+    <!-- フッター（ブロック: partials/footer.html） -->
+    <div data-include="partials/footer.html"></div>
 
+    <script src="includes.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

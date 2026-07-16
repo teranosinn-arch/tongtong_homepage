@@ -193,17 +193,49 @@
         });
     }
 
+    // 12. アクセスカウンター
+    // CountAPI（登録不要の無料カウンターAPI）でアクセス数を加算＆表示。
+    // オフライン等でAPIに繋がらない場合はブラウザローカルの推定値にフォールバックする。
+    async function initAccessCounter() {
+        const digitsEl = document.getElementById('counter-digits');
+        if (!digitsEl) return;
+
+        const DIGIT_COUNT = 6;
+        const NAMESPACE = 'tongtong-homepage-teranosinn-arch';
+        const KEY = 'visits';
+
+        function render(value) {
+            digitsEl.textContent = String(value).padStart(DIGIT_COUNT, '0');
+        }
+
+        try {
+            const res = await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            render(data.value);
+        } catch (err) {
+            console.warn('[access-counter] オンラインカウンターに接続できないため、ローカルの推定値を表示します。', err);
+            const LOCAL_KEY = 'tongtongLocalVisitCount';
+            const count = (parseInt(localStorage.getItem(LOCAL_KEY), 10) || 0) + 1;
+            localStorage.setItem(LOCAL_KEY, String(count));
+            render(count);
+        }
+    }
+
     // ============================================
     // 初期化
     // ============================================
-
-    document.addEventListener('DOMContentLoaded', () => {
+    // header/nav/各セクション/footer は partials/ から
+    // includes.js が非同期で読み込むため、それらのブロックが
+    // 全てDOMに揃った後（'partials:loaded'）に初期化する。
+    function initApp() {
         generateSparkles();
         addClickParticles();
         showWelcomeNotice();
         addScrollAnimation();
         detectKonamiCode();
         updateCounter();
+        initAccessCounter();
         addCursorTrail();
         addLinkEffects();
         smoothScroll();
@@ -214,7 +246,9 @@
         console.log('%c🪐 惑星トントン 公式ホームページへようこそ！🪐', 'font-size: 20px; color: #FF00FF; font-weight: bold; text-shadow: 2px 2px 0 #00FFFF;');
         console.log('%c最新曲「ここではないどこかへ」配信中！', 'font-size: 14px; color: #00FFFF;');
         console.log('ソースコード: https://github.com/teranosinn-arch/tongtong_homepage');
-    });
+    }
+
+    document.addEventListener('partials:loaded', initApp);
 
     // ブラウザのコンソールをいたずら
     console.log('%c\n████████████████████████████████████████\n███ 惑星トントン Official Site ███\n████████████████████████████████████████\n', 'color: #FF00FF; font-weight: bold;');
