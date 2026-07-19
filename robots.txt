@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://teranosinn-arch.github.io/tongtong_homepage/sitemap.xml
